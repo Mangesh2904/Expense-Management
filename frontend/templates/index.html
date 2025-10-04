@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseFlow - Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Inline Minimal Styles for immediate rendering using system_styles.css classes -->
+    <style>
+        :root {
+            --color-primary: #00A693;
+            --color-primary-dark: #008C7E;
+            --color-text: #344759;
+            --color-subtle: #6C7A89;
+            --color-border: #E0E6ED;
+            --color-bg-light: #F4F6F9;
+            --color-bg-white: #FFFFFF;
+            --radius-default: 8px;
+            --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-bg-light); color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Shared Component Styles */
+        .navbar { background-color: var(--color-bg-white); padding: 16px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--color-subtle); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--color-primary); }
+        
+        /* Form Card Styles */
+        .full-center-layout { flex-grow: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .card { background-color: var(--color-bg-white); padding: 40px; border-radius: 16px; box-shadow: var(--shadow-default); width: 100%; max-width: 450px; text-align: center; }
+        .card-title { color: var(--color-primary); font-size: 1.75rem; margin-bottom: 5px; }
+        .card-subtitle { color: var(--color-subtle); margin-top: 0; margin-bottom: 30px; }
+
+        .input-group { text-align: left; margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--color-subtle); font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-default); font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-control:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 166, 147, 0.15); }
+        
+        .btn { padding: 12px 24px; border: none; border-radius: var(--radius-default); font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%; }
+        .btn-primary { background-color: var(--color-primary); color: var(--color-bg-white); }
+        .btn-primary:hover { background-color: var(--color-primary-dark); }
+        
+        .footer { padding: 20px; text-align: center; font-size: 0.85rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); margin-top: auto; }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar">
+        <div class="logo">ExpenseFlow</div>
+        <div class="nav-links">
+            <a href="login.html" class="nav-link">Login</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="full-center-layout">
+        <div class="card signup-card">
+            <header class="card-header">
+                <h1 class="card-title">Create New User</h1>
+                <p class="card-subtitle">Register to submit or approve expenses.</p>
+            </header>
+            
+            <form id="signupForm" action="/signup" method="POST">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="name@company.com">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="(555) 555-5555">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="••••••••">
+                </div>
+                <div class="input-group">
+                    <label for="role">User Role</label>
+                    <select id="role" name="role" class="form-control" required>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="employee">Employee</option>
+                        <option value="manager">Manager</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+
+            <p class="mt-4" style="margin-top: 20px; font-size: 0.9rem;">
+                Already have an account? <a href="login.html" style="color: var(--color-primary); text-decoration: none;">Log In</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ExpenseFlow. All rights reserved.</p>
+    </footer>
+</body>
+</html>

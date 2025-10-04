@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseFlow - Manager Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Inline Minimal Styles -->
+    <style>
+        :root {
+            --color-primary: #00A693;
+            --color-primary-dark: #008C7E;
+            --color-secondary: #007BFF; 
+            --color-text: #344759;
+            --color-subtle: #6C7A89;
+            --color-border: #E0E6ED;
+            --color-bg-light: #F4F6F9;
+            --color-bg-white: #FFFFFF;
+            --radius-default: 8px;
+            --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --color-danger: #DC3545;
+            --color-success: #28A745;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-bg-light); color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .navbar { background-color: var(--color-bg-white); padding: 16px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--color-subtle); transition: color 0.2s; }
+        .nav-links .active { color: var(--color-primary); font-weight: 600; }
+        
+        .page-content { flex-grow: 1; padding: 40px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        h1 { font-size: 2rem; margin-bottom: 30px; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid var(--color-border); padding-bottom: 10px; }
+        
+        .card { background-color: var(--color-bg-white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow-default); margin-bottom: 30px; }
+        
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        th { background-color: var(--color-bg-light); font-weight: 600; color: var(--color-subtle); }
+        
+        .btn { padding: 8px 15px; border: none; border-radius: var(--radius-default); font-weight: 500; cursor: pointer; transition: background-color 0.2s; }
+        .btn-success { background-color: var(--color-success); color: var(--color-bg-white); }
+        .btn-danger { background-color: var(--color-danger); color: var(--color-bg-white); }
+        .btn-secondary { background-color: var(--color-secondary); color: var(--color-bg-white); }
+        
+        .status-pill { padding: 5px 10px; border-radius: 15px; font-weight: 600; font-size: 0.8rem; }
+        .status-pending { background-color: #007bff40; color: #004d9c; }
+        .status-approved { background-color: #28a74540; color: #1e6d30; }
+        .status-rejected { background-color: #dc354540; color: #9a202d; }
+
+        .footer { padding: 20px; text-align: center; font-size: 0.85rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); margin-top: auto; }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar">
+        <div class="logo">ExpenseFlow</div>
+        <div class="nav-links">
+            <a href="manager_dashboard.html" class="nav-link active">Review Expenses</a>
+            <a href="login.html" class="nav-link btn-secondary" style="margin-left: 40px;">Logout</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="page-content">
+        <h1>Manager Review Panel</h1>
+        
+        <!-- Section: Expenses to Review -->
+        <div class="card">
+            <h2>Expenses Awaiting My Review</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Submitted By</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Amount (USD)</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="expense_detail.html" style="color: var(--color-primary);">EXP-0046</a></td>
+                            <td>User B</td>
+                            <td>2025-10-02</td>
+                            <td>Travel</td>
+                            <td>$720.00</td>
+                            <td><span class="status-pending status-pill">Pending</span></td>
+                            <td>
+                                <a href="expense_detail.html" class="btn btn-secondary" style="padding: 5px 10px; margin-right: 5px;">View</a>
+                                <button class="btn btn-success" style="padding: 5px 10px;">Approve</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px;">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="expense_detail.html" style="color: var(--color-primary);">EXP-0047</a></td>
+                            <td>User C</td>
+                            <td>2025-10-02</td>
+                            <td>Meals</td>
+                            <td>$55.00</td>
+                            <td><span class="status-pending status-pill">Pending</span></td>
+                            <td>
+                                <a href="expense_detail.html" class="btn btn-secondary" style="padding: 5px 10px; margin-right: 5px;">View</a>
+                                <button class="btn btn-success" style="padding: 5px 10px;">Approve</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px;">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section: History of Approvals -->
+        <div class="card">
+            <h2>History of Approvals/Rejections</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Submitted By</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Amount (USD)</th>
+                            <th>My Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="expense_detail.html" style="color: var(--color-primary);">EXP-0044</a></td>
+                            <td>User A</td>
+                            <td>2025-09-29</td>
+                            <td>Meals</td>
+                            <td>$75.50</td>
+                            <td><span class="status-approved status-pill">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="expense_detail.html" style="color: var(--color-primary);">EXP-0042</a></td>
+                            <td>User A</td>
+                            <td>2025-09-21</td>
+                            <td>Software</td>
+                            <td>$1,200.00</td>
+                            <td><span class="status-rejected status-pill">Rejected</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ExpenseFlow. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseFlow - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Inline Minimal Styles (Same as signup.html) -->
+    <style>
+        :root {
+            --color-primary: #00A693;
+            --color-primary-dark: #008C7E;
+            --color-text: #344759;
+            --color-subtle: #6C7A89;
+            --color-border: #E0E6ED;
+            --color-bg-light: #F4F6F9;
+            --color-bg-white: #FFFFFF;
+            --radius-default: 8px;
+            --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-bg-light); color: var(--color-text); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Shared Component Styles */
+        .navbar { background-color: var(--color-bg-white); padding: 16px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--color-subtle); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--color-primary); }
+        
+        /* Form Card Styles */
+        .full-center-layout { flex-grow: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .card { background-color: var(--color-bg-white); padding: 40px; border-radius: 16px; box-shadow: var(--shadow-default); width: 100%; max-width: 450px; text-align: center; }
+        .card-title { color: var(--color-primary); font-size: 1.75rem; margin-bottom: 5px; }
+        .card-subtitle { color: var(--color-subtle); margin-top: 0; margin-bottom: 30px; }
+
+        .input-group { text-align: left; margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--color-subtle); font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-default); font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-control:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 166, 147, 0.15); }
+        
+        .btn { padding: 12px 24px; border: none; border-radius: var(--radius-default); font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%; }
+        .btn-primary { background-color: var(--color-primary); color: var(--color-bg-white); }
+        .btn-primary:hover { background-color: var(--color-primary-dark); }
+        
+        .footer { padding: 20px; text-align: center; font-size: 0.85rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); margin-top: auto; }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar">
+        <div class="logo">ExpenseFlow</div>
+        <div class="nav-links">
+            <a href="signup.html" class="nav-link btn-primary">Sign Up</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="full-center-layout">
+        <div class="card login-card">
+            <header class="card-header">
+                <h1 class="card-title">Welcome Back</h1>
+                <p class="card-subtitle">Sign in to your ExpenseFlow account.</p>
+            </header>
+            
+            <form id="loginForm" action="#" method="POST">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="name@company.com">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="••••••••">
+                </div>
+                
+                <!-- NOTE: In a real application, the backend redirects based on role. -->
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='admin_dashboard.html'; return false;">
+                    Log In (Simulated: Admin)
+                </button>
+            </form>
+
+            <p class="mt-4" style="margin-top: 20px; font-size: 0.9rem;">
+                Don't have an account? <a href="signup.html" style="color: var(--color-primary); text-decoration: none;">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ExpenseFlow. All rights reserved.</p>
+    </footer>
+
+    <!-- Simple JS to simulate role redirection for demo -->
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            // Simple logic for demo:
+            if (email.includes('admin')) {
+                window.location.href = 'admin_dashboard.html';
+            } else if (email.includes('manager')) {
+                window.location.href = 'manager_dashboard.html';
+            } else {
+                window.location.href = 'employee_dashboard.html';
+            }
+        };
+    </script>
+</body>
+</html>

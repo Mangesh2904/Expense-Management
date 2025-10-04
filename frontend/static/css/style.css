@@ -1,0 +1,222 @@
+/* ------------------------------------------- */
+/* 1. Global Variables & Resets */
+/* ------------------------------------------- */
+
+:root {
+    /* Color Palette */
+    --color-primary: #00A693; /* A professional, trustworthy teal/cyan */
+    --color-primary-dark: #008C7E;
+    --color-secondary: #007BFF; /* Used for subtle accents or important actions */
+    --color-accent: #FFC107; /* Warning/Highlight Yellow */
+    --color-success: #28A745;
+    --color-danger: #DC3545;
+
+    /* Grayscale & Backgrounds */
+    --color-text: #344759;
+    --color-subtle: #6C7A89;
+    --color-border: #E0E6ED;
+    --color-bg-light: #F4F6F9;
+    --color-bg-white: #FFFFFF;
+    
+    /* Typography */
+    --font-family: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    
+    /* Spacing & Effects */
+    --spacing-unit: 8px;
+    --radius-default: 8px;
+    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+}
+
+/* ------------------------------------------- */
+/* 2. Typography & Headings */
+/* ------------------------------------------- */
+
+h1, h2, h3 {
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+/* ------------------------------------------- */
+/* 3. Button Styles (Reusable) */
+/* ------------------------------------------- */
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-default);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button (Main Action) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Secondary Button (Outline/Minor Action) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+.btn:disabled {
+    background-color: #AAB7C4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ------------------------------------------- */
+/* 4. Form Components (Inputs, Selects, Labels) */
+/* ------------------------------------------- */
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: var(--spacing-unit);
+    font-weight: 500;
+    color: var(--color-subtle);
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    font-size: 1rem;
+    color: var(--color-text);
+    background-color: var(--color-bg-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 166, 147, 0.15); /* Primary color glow */
+}
+
+/* Custom styling for Select dropdown */
+.form-control.select-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236C7A89' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 0.8rem 0.8rem;
+    padding-right: 30px;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: var(--color-subtle);
+    margin-top: 4px;
+}
+
+/* ------------------------------------------- */
+/* 5. Card and Container Layout (For Signup Page) */
+/* ------------------------------------------- */
+
+.full-center-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background-color: var(--color-bg-white);
+    padding: 40px;
+    border-radius: 16px; /* Slightly larger radius for a modern feel */
+    box-shadow: var(--shadow-default);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.card-header {
+    margin-bottom: 30px;
+}
+
+.card-title {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    color: var(--color-subtle);
+    font-size: 1rem;
+}
+
+/* ------------------------------------------- */
+/* 6. Utility Classes */
+/* ------------------------------------------- */
+
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.p-4 { padding: 1.5rem; }
+
+/* ------------------------------------------- */
+/* 7. Responsive Adjustments */
+/* ------------------------------------------- */
+
+@media (max-width: 600px) {
+    .card {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+}
